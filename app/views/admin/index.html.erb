@@ -1,0 +1,23 @@
+admin index
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><%= current_user.email.split('@').first %></a>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Category', categories_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sub-Category', class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Brand', class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Product', class: 'nav-link' %>
+            </li>
+        </ul>
+        <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success my-2 my-sm-0' %>
+    </div>
+</nav>
