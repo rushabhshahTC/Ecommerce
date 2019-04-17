@@ -1,1 +1,47 @@
-Seller Registraion Page
+
+<br><br>
+<div class="border col-6 offset-3">
+    <center><h4><b>Seller Registraion Page</b></h4></center>
+    <br>
+        <% resource.build_profile if resource.profile.nil? %>
+
+        <div class='col-6 offset-3'>
+            <%= form_for(resource, :as => resource_name,
+                                    :url => registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+                <div class='form-group'>
+                    <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <div class='form-group'>
+                        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Enter Password', class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: 'form-control'%>
+                    </div>
+                </div>
+
+                <%= f.fields_for :profile do |profile_fields| %>
+                    <div class='form-group'>
+                        <%= profile_fields.text_field :first_name, placeholder: 'First Name', class: 'form-control' %>
+                    </div>
+
+                    <div class='form-group'>
+                    <%= profile_fields.label "Seller Type", class: 'form-control' %>
+                    <%= profile_fields.select :seller_type, [['Whole Seller','whole_seller'],['Retailer','retailer']], {} , {class: 'form-control'} %>
+                    </div>
+
+                    <div class='form-group'>
+                        <%= profile_fields.hidden_field :role, value: 'seller' %>
+                    </div>
+                <% end %>
+
+                <%= f.submit 'Create', class: 'btn btn-primary btn-sm' %>
+
+            <% end %>
+        </div>
+</div>
+
+
+
