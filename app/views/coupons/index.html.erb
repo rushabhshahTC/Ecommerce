@@ -1,0 +1,25 @@
+
+<% if Coupon.exists? %>
+    <table class="col-6 offset-3 table table-hover table-bordered">
+        <tr>
+            <th>Coupon Code</th>
+            <th>Discount</th>
+            <th>End Date</th>
+            <th colspan=2>Operation</th>
+        </tr>
+
+        <% @coupons.each do |coupon| %>
+            <tr class='thead-dark'>
+                <td><%= coupon.code %></td>
+                <td><%= coupon.discount %></td>
+                <td><%= coupon.end_date.strftime("%d/%m/%y") %></td>
+                <td><%= link_to 'Edit', edit_user_coupon_path(@user, coupon)%></td>
+                <td><%= link_to 'Delete', user_coupon_path(@user, coupon), method: :delete, data: {confirm: 'Are You Sure ?'}%></td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>
+
+<br>
+<%= link_to 'Create', new_user_coupon_path(current_user), class: 'btn btn-primary' %>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

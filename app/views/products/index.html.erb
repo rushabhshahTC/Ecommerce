@@ -1,0 +1,16 @@
+<br>
+<%= link_to 'Create Product', new_product_path, class: 'btn btn-primary' %>
+
+<table class="col-4 offset-4 table table-hover table-bordered">
+    <tr class='thead-dark'>
+        <th>Product Name</th>
+        <th>Product Price</th>
+    </tr>
+
+    <% @products.each do |product| %>
+        <tr>
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+        </tr>
+    <% end %>
+</table>

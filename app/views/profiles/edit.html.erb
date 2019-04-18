@@ -1,0 +1,39 @@
+<div class='border'>
+    <h4 align='center'> <b>Edit Profile</b> </h4>
+    <br>
+    <div class ='col-10 offset-1'>
+        <%= form_for [@user, @profile] do |form|%>
+            <div class='row'>
+                <div class='col-4'>
+                    <h4>Personal Details</h4>
+                    <%= form.text_field :first_name, class: 'form-control' %>
+                    <%= form.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+                    <%= form.label "Gender", class: "control-label" %>
+                    <%= form.radio_button :gender, "male", required: true %>
+                    <%= form.label :gender_male, "Male"%>
+                    <%= form.radio_button :gender, "female", required: true %>
+                    <%= form.label :gender_female, "Female" %>
+                    <%= form.radio_button :gender, "other", required: true %>
+                    <%= form.label :gender_other, "Other" %>
+                </div>
+                <div class='col-4'>
+                    <h4>Contact Details</h4>
+                    <%= form.text_field :address, class: 'form-control', placeholder: 'Address' %>
+                    <%= form.text_field :city, class: 'form-control col-4', placeholder: 'City Name' %>
+                    <%= form.text_field :state, class: 'form-control col-4', placeholder: 'State' %>
+                    <%= form.text_field :phone_number, class: 'form-control', placeholder: 'Phone Number' %>
+                </div>
+                <% if current_user.profile.role.eql?('seller') %>
+                    <div class='col-4'>
+                        <h4>Other Details</h4>
+                        <%= form.text_field :seller_type, class: 'form-control', value: "#{current_user.profile.seller_type}", disabled: true %>
+                        <%= form.text_field :company_name, class: 'form-control', placeholder: 'Company Name' %>
+                        <%= form.text_field :owner_name, class: 'form-control', placeholder: 'Owner Name' %>
+                    </div>
+                <% end %>
+            </div>
+            <%= form.submit class: 'btn btn-primary' %>
+            <%= link_to 'Cancel', user_profile_path(@user, @profile), class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+</div>

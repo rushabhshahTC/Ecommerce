@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     elsif current_user.profile.role.eql?('customer')
       root_path
     elsif current_user.profile.role.eql?('seller')
-      guest_user_page_path
+      sellerhome_path
     else
       new_user_registration_path
     end

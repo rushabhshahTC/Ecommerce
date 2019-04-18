@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
     has_one :profile, dependent: :destroy, autosave: true
     accepts_nested_attributes_for :profile
-
+    has_many :coupons
 end
