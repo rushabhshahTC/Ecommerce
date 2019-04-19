@@ -4,6 +4,5 @@ class AdminController < ApplicationController
   def seller
   end
   def customer
-    @user = User.new
   end
 end

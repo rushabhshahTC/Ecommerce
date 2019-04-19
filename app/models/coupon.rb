@@ -6,7 +6,6 @@ class Coupon < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   #cutstom validation method
-
   validate :expiration_date_cannot_be_in_the_past
 
   def expiration_date_cannot_be_in_the_past

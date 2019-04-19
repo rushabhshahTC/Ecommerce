@@ -20,7 +20,8 @@ gem 'devise'
 
 #bootstrap
 gem 'bootstrap'
-
+#nested-form
+gem 'nested_form'
 #jquery
 gem 'jquery-rails'
 gem 'jquery-validation-rails'

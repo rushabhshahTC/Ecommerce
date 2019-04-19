@@ -6,6 +6,5 @@ $( document ).on('turbolinks:load', function() {
         "profile[phone_number]": {required: true, minlength: 10},
         "profile[city]": "required"
         }
-
     });
 })

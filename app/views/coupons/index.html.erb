@@ -1,4 +1,6 @@
-
+<br>
+<%= link_to 'Create', new_user_coupon_path(current_user), class: 'btn btn-primary' %>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
 <% if Coupon.exists? %>
     <table class="col-6 offset-3 table table-hover table-bordered">
         <tr>
@@ -7,7 +9,6 @@
             <th>End Date</th>
             <th colspan=2>Operation</th>
         </tr>
-
         <% @coupons.each do |coupon| %>
             <tr class='thead-dark'>
                 <td><%= coupon.code %></td>
@@ -19,7 +20,4 @@
         <% end %>
     </table>
 <% end %>
-
 <br>
-<%= link_to 'Create', new_user_coupon_path(current_user), class: 'btn btn-primary' %>
-<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

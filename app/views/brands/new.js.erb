@@ -1,6 +1,5 @@
-$("#modal-window").find(".modal-content").html("<%= j (render 'new') %>");
+$("#modal-window").find(".modal-content").html("<%= j (render 'form') %>");
 $("#modal-window").modal();
-
 $("#new_brand").validate({
     rules: {
     "brand[name]": "required"

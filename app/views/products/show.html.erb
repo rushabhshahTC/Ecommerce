@@ -1,0 +1,18 @@
+<br>
+<div class='col-6 offset-3'>
+    <div class="card">
+        <div class="card-header" style='background-color: darkgrey;'>
+            <b>Product Details</b>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Product Name:- <%= @product.name %></h5>
+            <h5 class="card-title">Product Price:- <%= @product.price %></h5>
+            <h5 class="card-title">Category:- <%= @product.category_id %></h5>
+            <h5 class="card-title">Sub category:-<%= @product.sub_category_id %></h5>
+            <%#= image_tag url_for(@product.images), {height: 100} %>
+        </div>
+    </div>
+</div>
+<br>
+
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>

@@ -1,7 +1,7 @@
 $( document ).on('turbolinks:load', function() {
-    $("#new_sub_category").validate({
+    $("#new_coupon").validate({
         rules: {
-        "sub_category[name]": "required"
+        "coupon[code]": "required"
         }
     });
 })

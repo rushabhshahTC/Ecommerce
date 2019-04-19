@@ -7,6 +7,5 @@ $( document ).on('turbolinks:load', function() {
         "user[profile_attributes][first_name]": {required: true},
         "user[profile_attributes][seller_type]": "required"
         }
-
     });
 })

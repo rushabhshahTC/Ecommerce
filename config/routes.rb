@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :coupons
     resources :profiles
+    resources :products
   end
   resources :categories do
     resources :sub_categories
   end
 
   resources :brands
-  resources :products
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

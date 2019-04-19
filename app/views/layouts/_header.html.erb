@@ -23,9 +23,6 @@
 <% elsif current_user.present? && current_user.profile.role.eql?('customer') %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="">Welcome, <%= current_user.email.split('@').first %></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <%= link_to 'Home', root_path, class: 'nav-item nav-link active' %>
@@ -37,54 +34,34 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            <% if current_user.present? %>
                 <div class="navbar-nav">
                     <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
                 </div>
-            <% end %>
-            <% unless current_user.present? %>
-                <div class="navbar-nav">
-                    <%= link_to 'Login', new_user_session_path, class: 'nav-item nav-link' %>
-                </div>
-            <% end %>
         </form>
     </nav>
 <% elsif current_user.present? && current_user.profile.role.eql?('seller') %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #DFECD7'>
         <a class="navbar-brand" href="">Welcome, <%= current_user.email.split('@').first %></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <%= link_to 'Home', root_path, class: 'nav-item nav-link active' %>
                 <%= link_to 'About', about_path, class: 'nav-item nav-link' %>
                 <%= link_to 'Contact us', contact_path, class: 'nav-item nav-link' %>
-                <%= link_to 'Product',products_path, class: 'nav-item nav-link' %>
+                <%= link_to 'Product',user_products_path(current_user), class: 'nav-item nav-link' %>
                 <%= link_to 'Profile', user_profile_path(current_user, current_user.profile), class: 'nav-item nav-link' %>
             </div>
         </div>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            <% if current_user.present? %>
                 <div class="navbar-nav">
                     <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
                 </div>
-            <% end %>
-            <% unless current_user.present? %>
-                <div class="navbar-nav">
-                    <%= link_to 'Login', new_user_session_path, class: 'nav-item nav-link' %>
-                </div>
-            <% end %>
         </form>
     </nav>
 <% else %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #c5d8f0'>
         <a class="navbar-brand" href="#">mySite</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <%= link_to 'Home', root_path, class: 'nav-item nav-link active' %>
@@ -93,22 +70,13 @@
                 <%= link_to 'Customer Registrations', customer_path, class: 'nav-item nav-link' %>
                 <%= link_to 'Seller Registraions', seller_path, class: 'nav-item nav-link' %>
             </div>
-            
         </div>
-
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            <% if current_user.present? %>
-                <div class="navbar-nav">
-                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
-                </div>
-            <% end %>
-            <% unless current_user.present? %>
                 <div class="navbar-nav">
                     <%= link_to 'Login', new_user_session_path, class: 'nav-item nav-link' %>
                 </div>
-            <% end %>
         </form>
     </nav>
 <% end %>

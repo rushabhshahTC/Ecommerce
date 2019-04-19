@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [ :new, :create, :cancel ]
   # GET /resource/sign_up
   def new
-
     # Override Devise default behaviour and create a profile as well
     build_resource({})
     resource.build_profile
