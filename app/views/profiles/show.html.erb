@@ -1,15 +1,14 @@
 <br>
 <div class='col-6 offset-3'>
-    <div class="card">
-    <div class="card-header" style='background-color: darkgrey;'>
+    <div class='card'>
+    <div class='card-header' style='background-color: darkgrey;'>
         <b>My Profile</b>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">First Name:- <%= current_user.profile.first_name %></h5>
-        <h5 class="card-title">Last Name:- <%= current_user.profile.last_name %></h5>
-        <h5 class="card-title">Email:- <%= current_user.email %></h5>
+    <div class='card-body'>
+        <h5 class='card-title'>First Name:- <%= current_user.profile.first_name %></h5>
+        <h5 class='card-title'>Last Name:- <%= current_user.profile.last_name %></h5>
+        <h5 class='card-title'>Email:- <%= current_user.email %></h5>
         <%= link_to 'Edit Profile', edit_user_profile_path(current_user, current_user.profile),  class: 'btn btn-primary' %>
     </div>
     </div>
 </div>
-<br>

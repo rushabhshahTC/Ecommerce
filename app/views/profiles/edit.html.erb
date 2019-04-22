@@ -2,19 +2,19 @@
     <h4 align='center'> <b>Edit Profile</b> </h4>
     <br>
     <div class ='col-10 offset-1'>
-        <%= form_for [@user, @profile] do |form|%>
+        <%= form_for ([@user, @profile]) do |form|%>
             <div class='row'>
                 <div class='col-4'>
                     <h4>Personal Details</h4>
                     <%= form.text_field :first_name, class: 'form-control' %>
                     <%= form.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
-                    <%= form.label "Gender", class: "control-label" %>
-                    <%= form.radio_button :gender, "male", required: true %>
-                    <%= form.label :gender_male, "Male"%>
-                    <%= form.radio_button :gender, "female", required: true %>
-                    <%= form.label :gender_female, "Female" %>
-                    <%= form.radio_button :gender, "other", required: true %>
-                    <%= form.label :gender_other, "Other" %>
+                    <%= form.label 'Gender', class: 'control-label' %>
+                    <%= form.radio_button :gender, 'male', required: true %>
+                    <%= form.label :gender_male, 'Male'%>
+                    <%= form.radio_button :gender, 'female', required: true %>
+                    <%= form.label :gender_female, 'Female' %>
+                    <%= form.radio_button :gender, 'other', required: true %>
+                    <%= form.label :gender_other, 'Other' %>
                 </div>
                 <div class='col-4'>
                     <h4>Contact Details</h4>

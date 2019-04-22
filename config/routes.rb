@@ -12,7 +12,13 @@ Rails.application.routes.draw do
     resources :coupons
     resources :profiles
     resources :products
+    resources :orders
   end
+
+  resources :orders do
+    resources :order_items
+  end
+
   resources :categories do
     resources :sub_categories
   end

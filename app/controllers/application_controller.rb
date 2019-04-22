@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  # devise after sign path method
   def after_sign_in_path_for(resource)
     if current_user.profile.role.eql?('Admin')
       admin_path

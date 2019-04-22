@@ -1,13 +1,13 @@
 <br>
-<%= link_to 'Create', new_brand_path, {class: 'btn btn-primary', remote: true, 'data-toggle': "modal", 'data-target': '#modal-window'} %>
+<%= link_to 'Create', new_brand_path, { class: 'btn btn-primary', remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' } %>
 <%= link_to 'Back', admin_path, class: 'btn btn-primary' %>
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content"></div>
+<div id='modal-window' class='modal hide fade' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'></div>
     </div>
 </div>
 <br>
-<table class="col-6 offset-3 table table-hover table-bordered">
+<table class='col-6 offset-3 table table-hover table-bordered'>
     <tr class='thead-dark'>
         <th>Brand Name</th>
         <th colspan=2>Operation</th>
@@ -16,8 +16,8 @@
     <% @brands.each do |brand| %>
         <tr>
             <td><%= brand.name %></td>
-            <td><%= link_to 'Edit', edit_brand_path(brand), {remote: true, 'data-toggle': "modal", 'data-target': '#modal-window'} %></td>
-            <td><%= link_to 'Delete', brand_path(brand), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to 'Edit', edit_brand_path(brand), { remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' } %></td>
+            <td><%= link_to 'Delete', brand_path(brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
 </table>

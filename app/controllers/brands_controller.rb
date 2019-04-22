@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
-  before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :find_category, only: %i(show edit update destroy)
+
   def index
     @brands = Brand.all
   end
@@ -17,8 +18,7 @@ class BrandsController < ApplicationController
     redirect_to brands_path
   end
 
-  def show
-  end
+  def show; end
 
   def edit
   end
@@ -37,11 +37,12 @@ class BrandsController < ApplicationController
   end
 
   private
-  def brand_params
-    params.require(:brand).permit(:name)
-  end
 
-  def find_category
-    @brand = Brand.find(params[:id])
-  end
+    def brand_params
+      params.require(:brand).permit(:name)
+    end
+
+    def find_category
+      @brand = Brand.find_by(id: params[:id])
+    end
 end

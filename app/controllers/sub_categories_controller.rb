@@ -1,6 +1,7 @@
 class SubCategoriesController < ApplicationController
-  before_action :find_category, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  before_action :find_sub_category, only: [:show, :edit, :update, :destroy]
+  before_action :find_category
+  before_action :find_sub_category, only: %i(show edit update destroy)
+
   def index
     @subcategories = SubCategory.all
   end
@@ -14,11 +15,9 @@ class SubCategoriesController < ApplicationController
     redirect_to category_sub_categories_path
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @subcategory.update(subcategory_params)
@@ -34,15 +33,16 @@ class SubCategoriesController < ApplicationController
   end
 
   private
-  def subcategory_params
-    params.require(:sub_category).permit(:name)
-  end
 
-  def find_sub_category
-    @subcategory = SubCategory.find(params[:id])
-  end
+    def subcategory_params
+      params.require(:sub_category).permit(:name)
+    end
 
-  def find_category
-    @category = Category.find(params[:category_id])
-  end
+    def find_sub_category
+      @subcategory = SubCategory.find_by(id: params[:id])
+    end
+
+    def find_category
+      @category = Category.find_by(id: params[:category_id])
+    end
 end

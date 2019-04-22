@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  #associations
+  # associations
   belongs_to :user
 
 end

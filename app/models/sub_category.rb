@@ -1,8 +1,8 @@
 class SubCategory < ApplicationRecord
-  #associations
+  # associations
   belongs_to :category
   has_many :products, dependent: :destroy
 
-  #validations
+  # validations
   validates :name, presence: true
 end
